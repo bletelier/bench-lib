@@ -49,11 +49,11 @@ int main() {
 
 		bench.add("sum_copy", f1, a)
 			.set_input_size(sz)
-			.set_label("slr")
+			.set_label("sc")
 			.set_size_in_megabytes((4 * sz)/1'000'000);
 
 		bench.add("sum_ref", f2, a).set_input_size(sz)
-			.set_label("slr")
+			.set_label("sr")
 			.set_size_in_megabytes((4 * sz)/1'000'000);
 		
 		bench.run();
