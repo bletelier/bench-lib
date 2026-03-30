@@ -1,7 +1,7 @@
-#include "bench-lib/benchmark.hpp"
+#include "bench-lib/benchmark_base.hpp"
 
 namespace BenchLib {
-  bool Benchmark::append_csv(std::string csv_name) {
+  bool BenchmarkBase::append_csv(std::string csv_name) {
     std::ofstream file;
     file.open("results/"+csv_name+".csv", std::ios::app);
     if (!file.is_open()) {

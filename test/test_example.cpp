@@ -1,24 +1,3 @@
-# A basic library for benchmark algorithms and data structures written in cpp
-
-## How to install
-```git
-git submodule add https://github.com/bletelier/bench-lib.git external/bench-lib
-git submodule update --init --recursive
-```
-
-After, add the following line in the respective main folder's CMakeLists.txt
-```cmake
-add_subdirectory(external/bench-lib)
-```
-
-Finally, link the library (`bench-lib`) to the executable in the respective CMakeLists.txt
-```cmake
-add_executable(test_example test_example.cpp)
-target_link_libraries(test_example PRIVATE bench-lib)
-```
-
-## Example of usage
-```cpp
 #include <cassert>
 #include <random>
 #include "bench-lib/benchmark.hpp"
@@ -114,4 +93,3 @@ int main() {
   }
   return 0;
 }
-```

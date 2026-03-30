@@ -1,7 +1,7 @@
-#include "bench-lib/benchmark.hpp"
+#include "bench-lib/benchmark_base.hpp"
 
 namespace BenchLib {
-  bool Benchmark::write_csv(std::string csv_name) {
+  bool BenchmarkBase::write_csv(std::string csv_name) {
     std::filesystem::create_directories("results");
     std::ofstream file;
     file.open("results/"+csv_name+".csv");

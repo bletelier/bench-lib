@@ -1,19 +1,18 @@
-#ifndef BENCH_LIB_BENCHMARK_HPP
-#define BENCH_LIB_BENCHMARK_HPP
+#pragma once
 
 #include <vector>
 #include <chrono>
 #include <iostream>
 #include <algorithm>
 #include <cmath>
-#include <fstream>
-#include <filesystem>
 #include "benchmark_builder.hpp"
+#include "benchmark_base.hpp"
 
 namespace BenchLib
 {
-  class Benchmark
+  class Benchmark : public BenchmarkBase
   {
+  private:
   public:
     template <typename F, typename... Args>
     BenchmarkBuilder add(const std::string &explanation, F &&f, Args &&...args) {
@@ -38,13 +37,9 @@ namespace BenchLib
       return std::any_cast<T>(tasks[index].result);
     }
 
+    std::vector<BenchmarkCase> get_tasks() {
+      return tasks;
+    }
     void run(int iterations = 128, int cache_warmup = 64);
-    bool write_csv(std::string csv_name);
-    bool append_csv(std::string csv_name);
-
-  private:
-    std::vector<BenchmarkCase> tasks;
   };
 }
-
-#endif

@@ -6,9 +6,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 add_library(bench-lib STATIC
     src/benchmark_run.cpp
-    src/benchmark_write_csv.cpp
-    src/benchmark_append_csv.cpp
+    src/benchmark_base_write_csv.cpp
+    src/benchmark_base_append_csv.cpp
     src/benchmark_builder.cpp
+    src/benchmark_manager.cpp
 )
 
 target_include_directories(bench-lib PUBLIC
