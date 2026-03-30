@@ -16,8 +16,8 @@ target_include_directories(bench-lib PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
-option(BUILD_TESTING "Build tests" ON)
-if(BUILD_TESTING)
+option(BENCHLIB_BUILD_TESTING "Build BenchLib tests" ON)
+if(BENCHLIB_BUILD_TESTING)
     enable_testing()
     add_subdirectory(test)
 endif()
